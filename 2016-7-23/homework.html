@@ -15,9 +15,12 @@
 	window.onload=function(){
 		var aInp=document.querySelectorAll('input');
 		var oDiv=document.querySelector('.box div');
+		var aSpan=document.querySelectorAll('span');
 		for(var i=0;i<aInp.length;i++){
+			aInp[i].index=i;
 			aInp[i].onchange=function(){
 				oDiv.style.background='-webkit-repeating-linear-gradient(-45deg,'+aInp[0].value+' 0,'+aInp[0].value+' 10px,'+aInp[1].value+' 10px,'+aInp[1].value+' 20px)';		
+				aSpan[this.index].innerHTML=this.value;
 			};	
 		}
 	};
@@ -25,7 +28,8 @@
 </head>
 
 <body>
-颜色：<input type="color" value="#FF0000" >&nbsp;<input type="color" value="#FFA500">
+颜色：&nbsp;&nbsp;<input type="color" value="#FF0000" >&nbsp;<input type="color" value="#FFA500"><br />
+十六进制：<span>#FF0000</span>&nbsp;<span>#FFA500</span>
 <div class="box">
     <div></div>
 </div>
